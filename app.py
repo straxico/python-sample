@@ -30,16 +30,16 @@ def handle(msg):
     now =JalaliDatetime.now()
     if len(mss)<3 :
          if command == 'Time':
-             bot.sendMessage(chat_id, str(datetime.datetime.now()))
+             ss=str(datetime.datetime.now())
          elif command == '/help':
              sss= 'سلام واسه استفاده بايد تاريخ رو با يکي از فرمت هاي زير وارد کني' +'\n'+'1364/3/27'+'\n'+'1382-3-27'+'\n'+'1373.1.15'+'\n'+'1373,4,5'
-             bot.sendMessage(chat_id, str(sss))
+             ss= str(sss)
          elif command == '/start':
-             bot.sendMessage(chat_id, str("خیلی خوش اومدی لطفا یه تاریخ وارد کن"))
+            ss=str("خیلی خوش اومدی لطفا یه تاریخ وارد کن")
          elif command == 'ممنون':
-             bot.sendMessage(chat_id, str("خواهش میکنم مهربون .. قابلی نداشت "))
+            ss=str("خواهش میکنم مهربون .. قابلی نداشت ")
          elif command == 'احمق':
-             bot.sendMessage(chat_id, str("خودتی"))
+             ss=str("خودتی")
          else :
            ss='اگه میشه تاریخ رو اینجوری وارد کن تا من بتونم بخونمش' + '\t' + '1372.11.5'
     else:
