@@ -43,7 +43,7 @@ def handle(msg):
         date=old+dif1
         jdate=JalaliDatetime(date)
         if (jdate>now and i<5):
-            ss= ss + str(jdate.strftime('%A %D %B %N')) + str(dif1.days)
+            ss= ss + '\n' + str(jdate.strftime('%A %D %B %N')) +'میشی '+str(dif1.days) +"روزه "
             i=i+1
 
     print(ss)   
