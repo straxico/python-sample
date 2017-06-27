@@ -5,4 +5,3 @@ wsgiref==0.1.2
 Khayyam==3.0.15
 telepot==10.4
 pillow==4.0.0
-urllib2==2.7.9
