@@ -6,7 +6,6 @@ import datetime
 import telepot
 from khayyam import JalaliDatetime
 from PIL import Image
-import urllib2
 
 
 
@@ -63,7 +62,9 @@ def handle(msg):
      ss= ss +'\n' +'\n' + 'مواظب خوبیات باش' +" @strixdaybot "
     print(ss)
     
-    im = Image.open(urllib2.urlopen('http://behkaroma.ir/wp-content/uploads/2017/06/h2-1000x300.png'))
+    #im = Image.open(urllib2.urlopen('http://behkaroma.ir/wp-content/uploads/2017/06/h2-1000x300.png'))
+    im = Image.new('RGB', (512, 512))
+
     bot.sendPhoto(chat_id=, photo=im)
     bot.sendMessage(chat_id, text= ss )
 
