@@ -5,6 +5,10 @@ import time
 import datetime
 import telepot
 from khayyam import JalaliDatetime
+from PIL import Image
+import urllib2
+
+
 
 import sys
 # sys.setdefaultencoding() does not exist, here!
@@ -36,6 +40,7 @@ def handle(msg):
              ss= str(sss)
          elif command == '/start':
             ss=str("خیلی خوش اومدی لطفا یه تاریخ وارد کن")
+            
          elif command == 'ممنون':
             ss=str("خواهش میکنم مهربون .. قابلی نداشت ")
          elif command == 'احمق':
@@ -57,6 +62,9 @@ def handle(msg):
              i=i+1
      ss= ss +'\n' +'\n' + 'مواظب خوبیات باش' +" @strixdaybot "
     print(ss)
+    
+    im = Image.open(urllib2.urlopen('http://behkaroma.ir/wp-content/uploads/2017/06/h2-1000x300.png'))
+    bot.sendPhoto(chat_id=, photo=im)
     bot.sendMessage(chat_id, text= ss )
 
 bot = telepot.Bot('375977039:AAEGag8W43sQmo61KmBnvtVXFOsVAP7PIwk')
