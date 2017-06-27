@@ -65,7 +65,7 @@ def handle(msg):
     #im = Image.open(urllib2.urlopen('http://behkaroma.ir/wp-content/uploads/2017/06/h2-1000x300.png'))
     im = Image.new('RGB', (512, 512))
 
-    bot.sendPhoto(chat_id=, photo=im)
+    bot.sendPhoto(chat_id, photo=im)
     bot.sendMessage(chat_id, text= ss )
 
 bot = telepot.Bot('375977039:AAEGag8W43sQmo61KmBnvtVXFOsVAP7PIwk')
