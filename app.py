@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 import os
 from flask import Flask
+import time
+import datetime
 import telepot
-from telepot.namedtuple import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove, ForceReply
-from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
-from telepot.namedtuple import InlineQueryResultArticle, InlineQueryResultPhoto, InputTextMessageContent
-
-
+from khayyam import JalaliDatetime
 
 import sys
 # sys.setdefaultencoding() does not exist, here!
@@ -25,69 +23,43 @@ def handle(msg):
     command = msg['text']
     print ('Got command: %s' % command)
     mss = command
-    a='راه های ارتباطی'
-    b='کاروما چیست؟'
-    bb='کاروما تیمی جوان و نوپا, متشکل از مهندسین متعهد و باسابقه می باشد که در امور تخصصی, فنی و مهندسی مانند ایده پردازی، طراحی، نظارت و اجرا توانا بوده و در سال1395 فعالیت خود را آغاز نمودند'
-    c='تیم کاروما'
-    d='چرا باید کاروما را انتخاب کنید'
-    dd='کاروما تركیبی قوی از افراد متخصص، جوان و کارآمد است که خواسته ها و نیازهای شما را شناسایی کرده و با بهترین نیروی انسانی و بهره برداری از مناسب ترین امکانات فنی و نرم افزاری قادر به ارائه راهکار ها و خدمات تخصصی به شماست.یک همکاری خوب نیازمند تیمی مستعد،نوآور و خلاق با قدرت ریسک پذیری میباشد. کاروما با تکیه بر نیروی انسانی خود به خوبی از پس خواسته های شما بر می آید'  
-    markup = ReplyKeyboardMarkup(keyboard=[[d,b],[a,c]])
-    markup2 = InlineKeyboardMarkup(inline_keyboard=[
-                     [dict(text='سایت بهین اجرا کاروما', url='http://behkaroma.ir')],
-                     [dict(text='کانال تلگرام', url='http://t.me/behkaroma')],
-                     [dict(text='اینستاگرام', url='http://instagram.com/behkaroma')],
-                     [dict(text='توییتر', url='http://twitter.com/behkaroma')],
-                     [dict(text='لینکدین', url='http://www.linkedin.com/company/behkaroma')],
-                     [dict(text='فیسبوک', url='https://www.facebook.com/Behkaroma-306939019727925')],
+    mss=mss.replace('/', ',')
+    mss=mss.replace('.', ',')
+    mss=mss.replace('-', ',')
+    mss=mss.split(',')
+    now =JalaliDatetime.now()
+    if len(mss)<3 :
+         if command == 'Time':
+             ss=str(datetime.datetime.now())
+         elif command == '/help':
+             sss= 'سلام واسه استفاده بايد تاريخ رو با يکي از فرمت هاي زير وارد کني' +'\n'+'1364/3/27'+'\n'+'1382-3-27'+'\n'+'1373.1.15'+'\n'+'1373,4,5'
+             ss= str(sss)
+         elif command == '/start':
+            ss=str("خیلی خوش اومدی لطفا یه تاریخ وارد کن")
+         elif command == 'ممنون':
+            ss=str("خواهش میکنم مهربون .. قابلی نداشت ")
+         elif command == 'احمق':
+             ss=str("خودتی")
+         else :
+           ss='اگه میشه تاریخ رو اینجوری وارد کن تا من بتونم بخونمش' + '\t' + '1372.11.5'
+    else:
+     old=JalaliDatetime(int(mss[0]),int(mss[1]),int(mss[2]))
+     dif = [100,200,222,300,333,400,444,500,555,600,666,700,777,800,888,900,999,1000,1111,2000,2222,3000,3333,4000,4444,5000,5555,6000,6666,7000,7777,8000,8228,8888,9000,9009,9999,10000,11111,12000,13000,14000,15000,16000,17000,18000,19000,20000,21000,22000,22222,23000,24000,25000,26000,27000]
+     i=0
+     d=(now-old).days
+     ss='سلام امروز ' +str(d)+ ' روزه هستی '
+     for x in dif:
+        dif1=datetime.timedelta(x)
+        date=old+dif1
+        jdate=JalaliDatetime(date)
+        if (jdate>now and i<10):
+             ss= ss + '\n' + str(jdate.strftime('%A %D %B %N')) +  ' میشی '+str(dif1.days) + " روزه "
+             i=i+1
+     ss= ss +'\n' +'\n' + 'مواظب خوبیات باش' +" @strixdaybot "
+    print(ss)
+    bot.sendMessage(chat_id, text= ss )
 
-                 ])
-    markup3 = InlineKeyboardMarkup(inline_keyboard=[
-                     [dict(text='رضا نیک صفت', url='http://t.me/Rezaniksefat')],
-                     [dict(text='مهران مطیعی', url='http://t.me/straxico')],
-                     [dict(text='امیر حسین طاهر', url='http://t.me/Coantomi')],
-                     [dict(text='خاطره مسیحا', url='http://t.me/Khaterekhanum')],
-                     [dict(text='یاسمن زارع زاده', url='http://t.me/yass_z')],
-                     [dict(text='گلبرگ عبدل پناه', url='https://t.me/GlbrgAp')],
-                     [dict(text='فاطمه اعتمادی', url='https://t.me/FatemehEt_1996')],
-
-                 ])
-    
-    
-    
-    if mss==a:
-     bot.sendMessage(chat_id, 'راه های ارتباطی با کاروما', reply_markup=markup2)
-    elif mss==b:
-     bot.sendMessage(chat_id, text= bb )
-    elif mss==c:
-     bot.sendMessage(chat_id, 'اعضای تیم کاروما', reply_markup=markup3)
-    elif mss==d:
-     bot.sendMessage(chat_id, text= dd )
-    else :
-      bot.sendMessage(chat_id, text= 'کاروما',reply_markup=markup )
-
-
-
-
-
-
-
-
-def on_callback_query(msg):
-    query_id, from_id, data = telepot.glance(msg, flavor='callback_query')
-    print('Callback query:', query_id, from_id, data)
-
-    if data == 'notification':
-        bot.answerCallbackQuery(query_id, text='Notification at top of screen')
-    elif data == 'tell':
-        bot.answerCallbackQuery(query_id, text='01333507643', show_alert=True)
-
-
-
-
-
-
-
-bot = telepot.Bot('341566965:AAFyS569nVLsoVqmGwWEtbzlfdEKW8cqnw4')
+bot = telepot.Bot('375977039:AAEGag8W43sQmo61KmBnvtVXFOsVAP7PIwk')
 bot.message_loop(handle)
 print ('I am listening ...')
 
@@ -98,4 +70,4 @@ if __name__ == '__main__':
     
 
 while 1:
-    time.sleep(10)
+time.sleep(10)
