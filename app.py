@@ -96,7 +96,7 @@ def handle(msg):
      bot.sendPhoto(chat_id, photo=bio)
     bot.sendMessage(chat_id, text= ss )
 
-bot = telepot.Bot('103976138:AAFPd9tRp5NsXM3Hb72IOSBOORxqKQyYFIo')
+bot = telepot.Bot('375977039:AAFOsgDE7kv9K9hRCHA1UOofhGjbxSXv4LA')
 bot.message_loop(handle)
 print ('I am listening ...')
 
