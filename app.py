@@ -56,7 +56,7 @@ def handle(msg):
     mss=mss.replace('.', ',')
     mss=mss.replace('-', ',')
     mss=mss.split(',')
-    user = User(str(chat_id), msg)
+    user = User(str(chat_id), mss)
     db.session.add(user)
     db.session.commit()
     now =JalaliDatetime.now()
