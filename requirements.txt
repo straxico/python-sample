@@ -7,4 +7,4 @@ telepot==10.4
 pillow==4.0.0
 requests==2.18.1
 Flask-SQLAlchemy==2.3.1
-psycopg2==2.7.4
+psycopg2==2.7.3
