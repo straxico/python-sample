@@ -6,3 +6,4 @@ Khayyam==3.0.15
 telepot==10.4
 pillow==4.0.0
 requests==2.18.1
+Flask-SQLAlchemy==2.3.1
