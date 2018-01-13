@@ -2,6 +2,7 @@
 # Use Python 3
 import os
 from flask import Flask
+from flask.ext.sqlalchemy import SQLAlchemy
 import time
 import datetime
 import telepot
@@ -22,6 +23,9 @@ reload(sys)  # Reload does the trick!
 sys.setdefaultencoding('UTF8')
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+db = SQLAlchemy(app)
+
 
 @app.route('/')
 def hello():
