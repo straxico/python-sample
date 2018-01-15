@@ -4,6 +4,9 @@ import os
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 import telepot
+from telepot.namedtuple import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove, ForceReply
+from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
+from telepot.namedtuple import InlineQueryResultArticle, InlineQueryResultPhoto, InputTextMessageContent
 import time
 import datetime
 from khayyam import JalaliDatetime
