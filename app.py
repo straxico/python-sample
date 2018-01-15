@@ -34,8 +34,7 @@ class User(db.Model):
         self.email = comment
          
     def __repr__(self):
-        sss=self.comment + "...." + self.name
-        return 'Name %r ' % sss
+        return 'Name %r ' % self.name
 
 
 @app.route('/')
