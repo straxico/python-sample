@@ -81,7 +81,7 @@ def handle(msg):
      if databa.count()>0:
       tedadestefade=databa.count()
       com=databa[tedadestefade-1].comment
-      markup = ReplyKeyboardMarkup(keyboard=[[com]],resize_keyboard=True)
+      markup = ReplyKeyboardMarkup(keyboard=[[command]],resize_keyboard=True)
       bot.sendMessage(chat_id, com, reply_markup=markup)
 
     
