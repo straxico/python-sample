@@ -108,7 +108,7 @@ def handle(msg):
     bio.seek(0)
     if (kk==0):
      bot.sendPhoto(chat_id, photo=bio)
-    reg = User(str(chat_id),ss)
+    reg = User(str(chat_id),command)
     print(reg)
     db.session.add(reg)
     db.session.commit()
