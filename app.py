@@ -31,7 +31,7 @@ class User(db.Model):
 
     def __init__(self, name, comment):
         self.name = name
-        self.email = comment
+        self.comment = comment
          
     def __repr__(self):
         return 'Name %r ' % self.name
