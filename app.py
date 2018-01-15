@@ -82,7 +82,7 @@ def handle(msg):
       tedadestefade=databa.count()
       com=databa[tedadestefade-1].comment
       markup = ReplyKeyboardMarkup(keyboard=[[com]],resize_keyboard=True)
-      bot.sendMessage(chat_id, com, reply_markup=newsmarkup)
+      bot.sendMessage(chat_id, com, reply_markup=markup)
 
     
      old=JalaliDatetime(int(mss[0]),int(mss[1]),int(mss[2]))
