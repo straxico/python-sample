@@ -74,7 +74,7 @@ def handle(msg):
     else:
         
         
-     databa=User.query.filter_by(name=chat_id)
+     databa=User.query.filter_by(name=str(chat_id))
      if databa.count()>0:
       tedadestefade=databa.count()
       com=databa[tedadestefade-1].comment
