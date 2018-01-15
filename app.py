@@ -27,7 +27,7 @@ db = SQLAlchemy(app)
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
-    comment = db.Column(db.String(120))
+    comment = db.Column(db.String(400))
 
     def __init__(self, name, comment):
         self.name = name
@@ -110,8 +110,9 @@ def handle(msg):
     if (kk==0):
      bot.sendPhoto(chat_id, photo=bio)
     reg = User(str(chat_id),ss)
-    db.session.add(reg)
-    db.session.commit()
+    print(reg)
+    #db.session.add(reg)
+    #db.session.commit()
     bot.sendMessage(chat_id, text= ss )
 
 bot = telepot.Bot('375977039:AAFOsgDE7kv9K9hRCHA1UOofhGjbxSXv4LA')
