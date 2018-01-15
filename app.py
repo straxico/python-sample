@@ -110,8 +110,8 @@ def handle(msg):
      bot.sendPhoto(chat_id, photo=bio)
     reg = User(str(chat_id),ss)
     print(reg)
-    #db.session.add(reg)
-    #db.session.commit()
+    db.session.add(reg)
+    db.session.commit()
     bot.sendMessage(chat_id, text= ss )
 
 bot = telepot.Bot('375977039:AAFOsgDE7kv9K9hRCHA1UOofhGjbxSXv4LA')
