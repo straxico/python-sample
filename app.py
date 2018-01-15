@@ -64,9 +64,12 @@ def handle(msg):
          elif command == '/help':
              sss= 'سلام واسه استفاده بايد تاريخ رو با يکي از فرمت هاي زير وارد کني' +'\n'+'1364/3/27'+'\n'+'1382-3-27'+'\n'+'1373.1.15'+'\n'+'1373,4,5'
              ss= str(sss)
+         elif command == 'راهنما':
+             sss= 'سلام واسه استفاده بايد تاريخ رو با يکي از فرمت هاي زير وارد کني' +'\n'+'1364/3/27'+'\n'+'1382-3-27'+'\n'+'1373.1.15'+'\n'+'1373,4,5'
+             ss= str(sss)
          elif command == '/start':
-            
-            ss=str("خیلی خوش اومدی لطفا یه تاریخ وارد کن")
+            markupp = ReplyKeyboardMarkup(keyboard=[['راهنما']],resize_keyboard=True)
+            bot.sendMessage(chat_id, "خیلی خوش اومدی لطفا یه تاریخ وارد کن", reply_markup=markupp)
          elif command == 'ممنون':
             ss=str("خواهش میکنم مهربون .. قابلی نداشت ")
          elif command == 'احمق':
@@ -82,7 +85,7 @@ def handle(msg):
       tedadestefade=databa.count()
       com=databa[tedadestefade-1].comment
       sumofuse=db.session.query(User).count()
-      markup = ReplyKeyboardMarkup(keyboard=[[command]],resize_keyboard=True)
+      markup = ReplyKeyboardMarkup(keyboard=[[command]['راهنما']],resize_keyboard=True)
       bot.sendMessage(chat_id, com, reply_markup=markup)
 
     
