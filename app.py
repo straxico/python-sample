@@ -86,9 +86,7 @@ def handle(msg):
       com=databa[tedadestefade-1].comment
       sumofuse=db.session.query(User).count()
       markup = ReplyKeyboardMarkup(keyboard=[[command]['راهنما']],resize_keyboard=True)
-      bot.sendMessage(chat_id, com, reply_markup=markup)
-
-    
+      bot.sendMessage(chat_id, command, reply_markup=markup)
      old=JalaliDatetime(int(mss[0]),int(mss[1]),int(mss[2]))
      dif = [100,200,222,300,333,400,444,500,555,600,666,700,777,800,888,900,999,1000,1111,2000,2222,3000,3333,4000,4444,5000,5555,6000,6006,6116,6226,6336,6446,6556,6666,6776,6886,6996,7000,7007,7100,7117,7200,7227,7300,7337,7400,7447,7500,7557,7600,7667,7700,7777,7800,7887,7900,7997,8000,8100,8200,8228,8300,8338,8400,8448,8500,8558,8668,8778,8888,9000,9009,9999,10000,11111,12000,13000,14000,15000,16000,17000,18000,19000,20000,21000,22000,22222,23000,24000,25000,26000,27000]
      i=0
@@ -131,7 +129,8 @@ def handle(msg):
     image.save(bio, 'JPEG')
     bio.seek(0)
     if (kk==0):
-     bot.sendPhoto(chat_id, photo=bio)
+     if len(zz)>10:
+      bot.sendPhoto(chat_id, photo=bio)
     reg = User(str(chat_id),command)
     print(reg)
     db.session.add(reg)
