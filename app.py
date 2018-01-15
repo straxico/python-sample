@@ -99,7 +99,7 @@ def handle(msg):
                zz= zz + '\n'  +'You will be '+ str(dif1.days) + ' days old in the next ' + str(dif1.days - cc) +' days'
 
              i=i+1
-     ss= ss +'\n' +'\n' str(tedadestefade) +'\n' + 'مواظب خوبیات باش' +" @strixdaybot "
+     ss= ss +'\n' +'\n'+ str(tedadestefade) +'\n' + 'مواظب خوبیات باش' +" @strixdaybot "
      zz= zz +'\n' +'\n' + '               Take care of your good behaviors' +'\n'+ '               and appreciate your days of life' +'\n'+'\n'+'\n'+'\n'+'\n' +'                             telegram: @strixdaybot '
      
      
