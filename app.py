@@ -81,6 +81,7 @@ def handle(msg):
      if databa.count()>0:
       tedadestefade=databa.count()
       com=databa[tedadestefade-1].comment
+      sumofuse=db.session.query(User).count()
       markup = ReplyKeyboardMarkup(keyboard=[[command]],resize_keyboard=True)
       bot.sendMessage(chat_id, com, reply_markup=markup)
 
@@ -102,7 +103,7 @@ def handle(msg):
                zz= zz + '\n'  +'You will be '+ str(dif1.days) + ' days old in the next ' + str(dif1.days - cc) +' days'
 
              i=i+1
-     ss= ss +'\n' +'\n'+ str(tedadestefade) +'\n' + 'مواظب خوبیات باش' +" @strixdaybot "
+     ss= ss +'\n' +'\n'+ str(tedadestefade) + " تعداد استفاده شما  "+'\n' + str(sumofuse) + " تعداد کل  "+'\n'+ 'مواظب خوبیات باش' +" @strixdaybot "
      zz= zz +'\n' +'\n' + '               Take care of your good behaviors' +'\n'+ '               and appreciate your days of life' +'\n'+'\n'+'\n'+'\n'+'\n' +'                             telegram: @strixdaybot '
      
      
