@@ -114,8 +114,8 @@ def handle(msg):
      zz= zz +'\n' +'\n' + '               Take care of your good behaviors' +'\n'+ '               and appreciate your days of life' +'\n'+'\n'+'\n'+'\n'+'\n' +'                             telegram: @strixdaybot '
      
      
-    img = requests.get("http://behkaroma.ir/p.jpg")
-    ff= requests.get("http://behkaroma.ir/p.ttf")
+    img = requests.get("http://tyto.ir/p.jpg")
+    ff= requests.get("http://tyto.ir/p.ttf")
     font1 = ImageFont.truetype(StringIO(ff.content),30)
     font2 = ImageFont.truetype(StringIO(ff.content),40)
     font3 = ImageFont.truetype(StringIO(ff.content),50)
